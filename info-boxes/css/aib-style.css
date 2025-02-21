@@ -1,0 +1,173 @@
+
+.aib-board {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+    background: linear-gradient(90deg,#e52e71,#ff8a00);
+    padding: 20px 0;
+  }
+  
+  /* 
+     Each "section" is one info box. 
+  */
+  .aib-board section {
+    position: relative;
+    width: 31%;
+    min-width: 280px;
+    height: 220px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #fafafa;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  /* 
+     Hover effect
+  */
+  .aib-board section:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  }
+  
+  /* 
+     Base .aib-tile styling 
+  */
+  .aib-tile {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 2em 1em;
+    transition: top 0.55s ease-in;
+  }
+  
+  /* 
+     The cover tile (initial front side) 
+  */
+  .aib-cover {
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  /* 
+     The description tile (back side) 
+  */
+  .aib-desc {
+    top: 100%;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  /* 
+     Title style improvements 
+  */
+  .aib-cover h4 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+  }
+  
+   h4, h5, h6 {
+      font-size: 1.5rem !important;
+  }
+  
+  /* 
+     Description styling 
+  */
+  .aib-desc span {
+    display: block;
+    margin-bottom: 1em;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  .aib-desc a {
+    display: inline-block;
+    padding: 0.5em 1em;
+    background-color: #eee;
+    color: #333;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+  }
+  .aib-desc a:hover {
+    background-color: #ddd;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .aib-board section {
+      width: 100%;
+      min-width: 100%;
+    }
+  }
+  
+  /* ==========================================================================
+     Animations (spinOut, spinIn, scootOut, scootIn)
+     ==========================================================================
+  */
+  
+  @keyframes spinOut {
+    0% {
+      transform: rotate(0deg);
+      opacity: 1.0;
+    }
+    100% {
+      transform: rotate(360deg);
+      opacity: 0;
+    }
+  }
+  @keyframes spinIn {
+    0% {
+      transform: rotate(0deg);
+      opacity: 0;
+    }
+    100% {
+      transform: rotate(-360deg);
+      opacity: 1.0;
+    }
+  }
+  @keyframes scootOut {
+    0% {
+      transform: translateY(0);
+    }
+    5% {
+      transform: translateY(-15px);
+    }
+    100% {
+      transform: translateY(110px);
+    }
+  }
+  @keyframes scootIn {
+    0% {
+      transform: translateY(110px);
+    }
+    66% {
+      transform: translateY(-5px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  /* Use utility classes to trigger these animations */
+  .spin-in {
+    animation: spinIn 0.4s 0.2s ease both;
+  }
+  .spin-out {
+    animation: spinOut 0.4s 0s ease both;
+  }
+  .scoot-out {
+    animation: scootOut 0.5s 0s ease both;
+  }
+  .scoot-in {
+    animation: scootIn 1s 0s ease both;
+  }
+  
